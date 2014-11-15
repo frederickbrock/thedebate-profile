@@ -1,0 +1,21 @@
+{
+    "facebook": {
+        "clientID": "4836645812",
+        "clientSecret": "a35abf7f814f8ab1536bd7c209134cce",
+        "callback": "/profile/auth/facebook/callback"
+    },
+    "usergrid": {
+        "org" : "brocktechnologies",
+        "app" : "thedebate"
+    },
+    "pubnub": {
+        "channels":[ {
+            "subscribe_key": "sub-c-c7fd1f20-6a37-11e4-be58-02ee2ddab7fe",
+            "publish_key": "pub-c-1f56b53c-99cd-47d8-a8f4-9cbc194e68e7",
+            "name" : "tdebate_polls" 
+        }]
+    },
+    "api":{
+        "httpPort":"3000"
+    }
+}
