@@ -8,7 +8,6 @@ var config = require('./config.json');
 var app = express();
 
 //install your routes
-var profile_routes = require('./routes/profile')(app,config);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -21,7 +20,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use('/', routes);
+//app.use('/', routes);
+var profile_routes = require('./routes/profile');
+app.use('/v1/profile', profile_routes(express.Router(),config));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -53,7 +54,7 @@ app.use(function(err, req, res, next) {
     });
 });
 
-app.listen(process.Env.PORT || config.api.port);
+app.listen(process.env.PORT || config.api.port);
 
 
 module.exports = app;

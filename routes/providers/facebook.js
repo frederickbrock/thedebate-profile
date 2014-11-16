@@ -1,11 +1,10 @@
-
 var passport = require('passport');
 var FaceBookStrategy = require('passport-facebook').Strategy;
 
 
 module.exports = function(router,config){
     
-    passport.use(new FacebookStrategy({
+    passport.use(new FaceBookStrategy({
                         clientID: config.facebook.clientID,
                         clientSecret: config.facebook.clientSecret,
                         callbackURL: "http://www.example.com/auth/facebook/callback"
