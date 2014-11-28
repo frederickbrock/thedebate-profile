@@ -2,7 +2,7 @@
     "facebook": {
         "clientID": "4836645812",
         "clientSecret": "a35abf7f814f8ab1536bd7c209134cce",
-        "callback": "/profile/auth/facebook/callback"
+        "callbackURL": "http://pandora-tape.codio.io:3000/profile/auth/facebook/callback"
     },
     "usergrid": {
         "org" : "brocktechnologies",

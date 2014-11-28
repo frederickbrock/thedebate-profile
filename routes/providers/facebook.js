@@ -1,13 +1,12 @@
 var passport = require('passport');
 var FaceBookStrategy = require('passport-facebook').Strategy;
 
-
 module.exports = function(router,config){
     
     passport.use(new FaceBookStrategy({
                         clientID: config.facebook.clientID,
                         clientSecret: config.facebook.clientSecret,
-                        callbackURL: "http://www.example.com/auth/facebook/callback"
+                        callbackURL: config.facebook.callbackURL
                  },
 
                  function(accessToken, refreshToken, profile, done) {
@@ -18,7 +17,6 @@ module.exports = function(router,config){
     //this is the callback after user has authenticated to facebook
     router.get('/auth/facebook/callback', passport.authenticate('facebook', { successRedirect: '/',
                                       failureRedirect: '/login' }));
-    
     //this route redirects to facebook
     router.get('/auth/facebook', passport.authenticate('facebook'));
 };
